@@ -13,16 +13,15 @@
  * @license   Réseau CERTA
  * @version   GIT: <0>
  * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
- * @link      https://getbootstrap.com/docs/3.3/ Documentation Bootstrap v3
+ * @link      https://getbootstrap.com/docs/5.3/ Documentation Bootstrap v5.3
  */
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="UTF-8">
-        <title>Intranet du Laboratoire Galaxy-Swiss Bourdin</title> 
+        <title>Intranet du Laboratoire Galaxy-Swiss Bourdin</title>
         <meta name="description" content="">
         <meta name="author" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,14 +38,15 @@
             if ($estConnecte) {
                 ?>
             <div class="header">
-                <div class="row vertical-align">
-                    <div class="col-md-4">
+                <div class="row align-items-center">
+                    <div class="col-lg-4">
                         <h1>
-                            <img src="./images/logo.jpg" class="img-responsive" 
-                                 alt="Laboratoire Galaxy-Swiss Bourdin" 
+                            <img src="./images/logo.jpg" class="img-fluid"
+                                 alt="Laboratoire Galaxy-Swiss Bourdin"
                                  title="Laboratoire Galaxy-Swiss Bourdin">
                         </h1>
                     </div>
+<<<<<<< HEAD
                     <div class="col-md-8">
                         <ul class="nav nav-pills pull-right" role="tablist">
                         <li class="nav-item">
@@ -72,6 +72,39 @@
                         <li <?php if ($uc == 'deconnexion') { ?>class="active"<?php } ?>>
                             <a href="index.php?uc=deconnexion&action=demandeDeconnexion">
                                 <i class="bi bi-box-arrow-right"></i>
+=======
+                    <div class="col-lg-8">
+                        <ul class="nav nav-pills justify-content-lg-end gap-1" aria-label="Navigation principale">
+                            <li class="nav-item">
+                                <a class="nav-link<?php if (!$uc || $uc == 'accueil') { ?> active<?php } ?>"
+                                   <?php if (!$uc || $uc == 'accueil') { ?>aria-current="page"<?php } ?>
+                                   href="index.php">
+                                    <svg class="icon" aria-hidden="true" focusable="false"><use href="./images/icons.svg#home"></use></svg>
+                                    Accueil
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link<?php if ($uc == 'gererFrais') { ?> active<?php } ?>"
+                                   <?php if ($uc == 'gererFrais') { ?>aria-current="page"<?php } ?>
+                                   href="index.php?uc=gererFrais&action=saisirFrais">
+                                    <svg class="icon" aria-hidden="true" focusable="false"><use href="./images/icons.svg#pencil"></use></svg>
+                                    Renseigner la fiche de frais
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link<?php if ($uc == 'etatFrais') { ?> active<?php } ?>"
+                                   <?php if ($uc == 'etatFrais') { ?>aria-current="page"<?php } ?>
+                                   href="index.php?uc=etatFrais&action=selectionnerMois">
+                                    <svg class="icon" aria-hidden="true" focusable="false"><use href="./images/icons.svg#list-alt"></use></svg>
+                                    Afficher mes fiches de frais
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link<?php if ($uc == 'deconnexion') { ?> active<?php } ?>"
+                                   <?php if ($uc == 'deconnexion') { ?>aria-current="page"<?php } ?>
+                                   href="index.php?uc=deconnexion&action=demandeDeconnexion">
+                                    <svg class="icon" aria-hidden="true" focusable="false"><use href="./images/icons.svg#log-out"></use></svg>
+>>>>>>> f7662d3 (Migration bootstrap + FICHIER PROGRESSION et CAHIER DES CHARGES)
                                     Déconnexion
                             </a>
                         </li>
@@ -81,10 +114,10 @@
             </div>
             <?php
             } else {
-                ?>   
+                ?>
                 <h1>
                     <img src="./images/logo.jpg"
-                         class="img-responsive center-block"
+                         class="img-fluid d-block mx-auto"
                          alt="Laboratoire Galaxy-Swiss Bourdin"
                          title="Laboratoire Galaxy-Swiss Bourdin">
                 </h1>
