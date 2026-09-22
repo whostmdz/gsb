@@ -13,17 +13,15 @@
  * @license   Réseau CERTA
  * @version   GIT: <0>
  * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
- * @link      https://getbootstrap.com/docs/3.3/ Documentation Bootstrap v3
+ * @link      https://getbootstrap.com/docs/5.3/ Documentation Bootstrap v5.3
  */
 
 ?>
         </div>
 		<footer class="footer">
 			<div class="container">
-				<p class="text-muted">© GSB 2027</p>
+				<p class="text-body-secondary">© GSB 2027</p>
 			</div>
 		</footer>
     </body>
 </html>
-
-

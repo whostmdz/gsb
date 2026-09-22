@@ -13,21 +13,21 @@
  * @license   Réseau CERTA
  * @version   GIT: <0>
  * @link      http://www.reseaucerta.org Contexte « Laboratoire GSB »
- * @link      https://getbootstrap.com/docs/3.3/ Documentation Bootstrap v3
+ * @link      https://getbootstrap.com/docs/5.3/ Documentation Bootstrap v5.3
  */
 
 ?>
 <h2>Mes fiches de frais</h2>
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-lg-4">
         <h3>Sélectionner un mois : </h3>
     </div>
-    <div class="col-md-4">
-        <form action="index.php?uc=etatFrais&action=voirEtatFrais" 
+    <div class="col-lg-4">
+        <form action="index.php?uc=etatFrais&action=voirEtatFrais"
               method="post" role="form">
-            <div class="form-group">
-                <label for="lstMois" accesskey="n">Mois : </label>
-                <select id="lstMois" name="lstMois" class="form-control">
+            <div class="mb-3">
+                <label class="form-label" for="lstMois" accesskey="n">Mois : </label>
+                <select id="lstMois" name="lstMois" class="form-select">
                     <?php
                     foreach ($lesMois as $unMois) {
                         $mois = $unMois['mois'];
@@ -45,13 +45,13 @@
                             <?php
                         }
                     }
-                    ?>    
+                    ?>
 
                 </select>
             </div>
-            <input id="ok" type="submit" value="Valider" class="btn btn-success" 
+            <input id="ok" type="submit" value="Valider" class="btn btn-success"
                    role="button">
-            <input id="annuler" type="reset" value="Effacer" class="btn btn-danger" 
+            <input id="annuler" type="reset" value="Effacer" class="btn btn-danger"
                    role="button">
         </form>
     </div>
