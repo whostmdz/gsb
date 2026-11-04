@@ -17,11 +17,15 @@
  */
 
 ?>
-        </div>
-		<footer class="footer">
-			<div class="container">
-				<p class="text-body-secondary">© GSB 2027</p>
-			</div>
-		</footer>
-    </body>
-</html>
+</div>
+<footer class="footer">
+	<div class="container">
+		<p class="text-body-secondary">© GSB 2027</p>
+		</main>
+	</div>
+
+	<footer class="footer">
+	</footer>
+	</body>
+
+	</html>

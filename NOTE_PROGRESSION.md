@@ -1,4 +1,5 @@
 **22/09/2026**
+user : p.ayot:xiej3uuY0
 # Migration vers Bootstrap 5.3 
 
 Le CSS officiel Bootstrap 5.3.8 est conservé dans
