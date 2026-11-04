@@ -36,3 +36,13 @@ code {
   vertical-align: -0.125em;
   flex-shrink: 0;
 }
+
+.gsb-layout {
+  display: flex;
+  flex: 1;
+}
+
+.gsb-contenu {
+  flex: 1;
+  min-width: 0;
+}

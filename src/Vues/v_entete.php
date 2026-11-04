@@ -31,7 +31,7 @@
 </head>
 
 <body>
-    <div class="gsb-layout"> //change la classe gsb-layout pour le style de la page
+    <div class="gsb-layout"> <!--change la classe gsb-layout pour le style de la page-->
         <?php
         $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
@@ -40,7 +40,7 @@
         }
         ?>
 
-        <main class="gsb-contenu p-3 p-lg-4"> //change la classe gsb-contenu pour le style de la page + bootstrap padding
+        <main class="gsb-contenu p-3 p-lg-4"> <!--change la classe gsb-contenu pour le style de la page + bootstrap padding-->
             <?php if (!$estConnecte) { ?>
                 <h1>
                     <img src="./images/logo.jpg"

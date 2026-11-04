@@ -59,10 +59,8 @@
     <div class="mt-auto">
         <span class="d-block fw-semibold">
             <?= htmlspecialchars(
-                $_SESSION['prenom'] . ' ' . $_SESSION['nom'], //assemble le prenom + nom 
-                ENT_QUOTES,
-                'UTF-8'
-            ) ?>
+                $_SESSION['prenom'] . ' ' . $_SESSION['nom'], ENT_QUOTES,'UTF-8')
+                ?>
         </span>
         <small class="text-body-secondary">Visiteur médical</small>
     </div>
