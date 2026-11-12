@@ -90,16 +90,15 @@ class PdoGsb
      *
      * @return l'id, le nom et le prénom sous la forme d'un tableau associatif
      */
-    public function getInfosVisiteur($login, $mdp): array|false /** permet de retourner un array ou false, car avant page blanche sans le false*/
+    public function getInfosVisiteur($login): array|false /** permet de retourner un array ou false, car avant page blanche sans le false*/
     {
         $requetePrepare = $this->connexion->prepare(
-            'SELECT visiteur.id AS id, visiteur.nom AS nom, '
+            'SELECT visiteur.id AS id, visiteur.nom AS nom, visiteur.mdp AS mdp, '
             . 'visiteur.prenom AS prenom '
             . 'FROM visiteur '
-            . 'WHERE visiteur.login = :unLogin AND visiteur.mdp = :unMdp'
+            . 'WHERE visiteur.login = :unLogin'
         );
         $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
-        $requetePrepare->bindParam(':unMdp', $mdp, PDO::PARAM_STR);
         $requetePrepare->execute();
         return $requetePrepare->fetch();
     }

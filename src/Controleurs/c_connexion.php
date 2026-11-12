@@ -28,9 +28,9 @@ switch ($action) {
         break;
     case 'valideConnexion':
         $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $mdp = filter_input(INPUT_POST, 'mdp', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $visiteur = $pdo->getInfosVisiteur($login, $mdp);
-        if (!is_array($visiteur)) {
+        $mdp = filter_input(INPUT_POST, 'mdp', FILTER_UNSAFE_RAW);//**This filter removes data that is potentially harmful for the application */
+        $visiteur = $pdo->getInfosVisiteur($login);
+        if (!is_array($visiteur)||!password_verify($mdp, $visiteur['mdp'])) { //*password_verify($mdp, $visiteur['mdp']) pour hash*//
             Utilitaires::ajouterErreur('Login ou mot de passe incorrect');
             include PATH_VIEWS . 'v_erreurs.php';
             include PATH_VIEWS . 'v_connexion.php';
