@@ -17,11 +17,14 @@
  */
 
 ?>
-        </div>
-		<footer class="footer">
-			<div class="container">
-				<p class="text-body-secondary">© GSB 2027</p>
-			</div>
-		</footer>
-    </body>
+</main>
+
+<footer class="footer">
+	<p class="text-body-secondary">© GSB 2027</p>
+</footer>
+<!-- Faire attention aux fermetures de balises de entete-->
+</div> <!-- ferme la div .gsb-colonne -->
+</div> <!-- ferme la div .gsb-layout -->
+</body>
+
 </html>
