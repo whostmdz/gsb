@@ -21,76 +21,33 @@ $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>Intranet du Laboratoire Galaxy-Swiss Bourdin</title>
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="./styles/bootstrap/bootstrap.css" rel="stylesheet">
-        <link href="./styles/style.css" rel="stylesheet">
-    </head>
-    <body>
-        <div class="container">
-            <?php
-            $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            if ($estConnecte) {
-                ?>
-            <div class="header">
-                <div class="row align-items-center">
-                    <div class="col-lg-4">
-                        <h1>
-                            <img src="./images/logo.jpg" class="img-fluid"
-                                 alt="Laboratoire Galaxy-Swiss Bourdin"
-                                 title="Laboratoire Galaxy-Swiss Bourdin">
-                        </h1>
-                    </div>
-                    <div class="col-lg-8">
-                        <ul class="nav nav-pills justify-content-lg-end gap-1" aria-label="Navigation principale">
-                            <li class="nav-item">
-                                <a class="nav-link<?php if (!$uc || $uc == 'accueil') { ?> active<?php } ?>"
-                                   <?php if (!$uc || $uc == 'accueil') { ?>aria-current="page"<?php } ?>
-                                   href="index.php">
-                                    <svg class="icon" aria-hidden="true" focusable="false"><use href="./images/icons.svg#home"></use></svg>
-                                    Accueil
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link<?php if ($uc == 'gererFrais') { ?> active<?php } ?>"
-                                   <?php if ($uc == 'gererFrais') { ?>aria-current="page"<?php } ?>
-                                   href="index.php?uc=gererFrais&action=saisirFrais">
-                                    <svg class="icon" aria-hidden="true" focusable="false"><use href="./images/icons.svg#pencil"></use></svg>
-                                    Renseigner la fiche de frais
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link<?php if ($uc == 'etatFrais') { ?> active<?php } ?>"
-                                   <?php if ($uc == 'etatFrais') { ?>aria-current="page"<?php } ?>
-                                   href="index.php?uc=etatFrais&action=selectionnerMois">
-                                    <svg class="icon" aria-hidden="true" focusable="false"><use href="./images/icons.svg#list-alt"></use></svg>
-                                    Afficher mes fiches de frais
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link<?php if ($uc == 'deconnexion') { ?> active<?php } ?>"
-                                   <?php if ($uc == 'deconnexion') { ?>aria-current="page"<?php } ?>
-                                   href="index.php?uc=deconnexion&action=demandeDeconnexion">
-                                    <svg class="icon" aria-hidden="true" focusable="false"><use href="./images/icons.svg#log-out"></use></svg>
-                                    Déconnexion
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <?php
-            } else {
-                ?>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Intranet du Laboratoire Galaxy-Swiss Bourdin</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./styles/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="./styles/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="gsb-layout">
+        <?php
+        $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+        if ($estConnecte) {
+            require PATH_VIEWS . 'v_sidebar.php';
+        }
+        ?>
+
+        <main class="gsb-contenu p-3 p-lg-4">
+            <?php if (!$estConnecte) { ?>
                 <h1>
                     <img src="./images/logo.jpg"
-                         class="img-fluid d-block mx-auto"
-                         alt="Laboratoire Galaxy-Swiss Bourdin"
-                         title="Laboratoire Galaxy-Swiss Bourdin">
+                    class="img-fluid d-block mx-auto"
+                        alt="Laboratoire Galaxy-Swiss Bourdin">
                 </h1>
                 <?php
             }
