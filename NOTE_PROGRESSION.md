@@ -23,3 +23,8 @@ et [migration de v4 à v5](https://getbootstrap.com/docs/5.3/migration/).
 Le dossier `docs/` contient la documentation PHP générée ; il n'est pas utilisé
 pour l'interface de l'application et n'a pas été régénéré.
 
+- Script pour les mots de passe hashés avec argon2id fini.
+dossier `script/migrer_mdp.php`
+
+- Script pour créer une table utilisateur pour une seule connexion et une gestion claire des rôles + migration de la table
+dossier `script/modif_bdd.txt`
