@@ -3,12 +3,14 @@ CREATE TABLE utilisateur
     id char(5) PRIMARY KEY NOT NULL,
     nom varchar(30),
     prenom varchar(30),
-    login varchar(20),
-    mdp varchar(255),
-    role varchar(10)
+    login varchar(20) NOT NULL UNIQUE,
+    mdp varchar(255) NOT NULL,
+    role varchar(10) NOT NULL
 );
 
-INSERT INTO utilisateur SELECT id, nom, prenom, login, mdp, 'visiteur' FROM visiteur;
+INSERT INTO utilisateur (id, nom, prenom, login, mdp, role)
+SELECT id, nom, prenom, login, mdp, 'visiteur'
+FROM visiteur;
 
 alter table visiteur add idUtilisateur char(5) null;
 
