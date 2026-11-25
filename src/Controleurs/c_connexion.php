@@ -30,7 +30,7 @@ switch ($action) {
         $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $mdp = filter_input(INPUT_POST, 'mdp', FILTER_UNSAFE_RAW);//**This filter removes data that is potentially harmful for the application */
         $visiteur = $pdo->getInfosVisiteur($login);
-        if (!is_array($visiteur)||!password_verify($mdp, $visiteur['mdp'])) { //*password_verify($mdp, $visiteur['mdp']) pour hash*//
+        if (!password_verify($mdp, $visiteur['mdp'])) { //*password_verify($mdp, $visiteur['mdp']) pour vérif si c'est hash*//
             Utilitaires::ajouterErreur('Login ou mot de passe incorrect');
             include PATH_VIEWS . 'v_erreurs.php';
             include PATH_VIEWS . 'v_connexion.php';
