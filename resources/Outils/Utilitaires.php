@@ -24,9 +24,9 @@ abstract class Utilitaires
      *
      * @return vrai ou faux
      */
-    public static function estConnecte(): bool
+    public static function estConnecte() :bool
     {
-        return isset($_SESSION['idVisiteur']);
+        return isset($_SESSION['idVisiteur']) && isset($_SESSION['codeA2f']);
     }
 
     /**
@@ -249,5 +249,10 @@ abstract class Utilitaires
         } else {
             return count($_REQUEST['erreurs']);
         }
+    }
+
+    public static function connecterA2f($code)
+    {
+        $_SESSION['codeA2f'] = $code;
     }
 }
