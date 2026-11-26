@@ -7,15 +7,15 @@ $connexion = new PDO(DB_DSN, DB_USER, DB_PWD);
 echo "Connexion réussie." . PHP_EOL;
 
 $requetePrepare = $connexion->prepare(
-    'SELECT visiteur.id AS id, visiteur.mdp AS mdp, '
-    . 'visiteur.prenom AS prenom '
-    . 'FROM visiteur '
+    'SELECT utilisateur.id AS id, utilisateur.mdp AS mdp, '
+    . 'utilisateur.prenom AS prenom '
+    . 'FROM utilisateur '
 );
 $requetePrepare->execute();
 $visiteurs=$requetePrepare->fetchAll(PDO::FETCH_ASSOC);
 
 $requeteUpdateMdp =$connexion->prepare(
-    'UPDATE visiteur '
+    'UPDATE utilisateur '
     . 'SET mdp = :hash '
     . 'WHERE id = :id'
 );

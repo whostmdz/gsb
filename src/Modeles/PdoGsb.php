@@ -93,10 +93,10 @@ class PdoGsb
     public function getInfosVisiteur($login): array|false /** permet de retourner un array ou false, car avant page blanche sans le false*/
     {
         $requetePrepare = $this->connexion->prepare(
-            'SELECT visiteur.id AS id, visiteur.nom AS nom, visiteur.mdp AS mdp, '
-            . 'visiteur.prenom AS prenom, visiteur.email as email '
-            . 'FROM visiteur '
-            . 'WHERE visiteur.login = :unLogin'
+            'SELECT utilisateur.id as id, utilisateur.nom as nom, utilisateur.prenom as prenom, '
+            . 'utilisateur.mdp as mdp, utilisateur.email as email, utilisateur.role as role '
+            . 'FROM utilisateur '
+            . 'WHERE utilisateur.login = :unLogin'
         );
         $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
         $requetePrepare->execute();
@@ -478,11 +478,11 @@ class PdoGsb
         $requetePrepare->execute();
     }
 
-    public function getMdpVisiteur($login) {
+    public function getMdpUtilisateur($login) {
         $requetePrepare = $this->connexion->prepare(
             'SELECT mdp '
-            . 'FROM visiteur '
-            . 'WHERE visiteur.login = :unLogin'
+            . 'FROM utilisateur '
+            . 'WHERE utilisateur.login = :unLogin'
         );
         $requetePrepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
         $requetePrepare->execute();
@@ -491,9 +491,9 @@ class PdoGsb
 
     public function setCodeA2f($id, $code) {
         $requetePrepare = $this->connexion->prepare(
-            'UPDATE visiteur '
+            'UPDATE utilisateur '
           . 'SET codea2f = :unCode '
-          . 'WHERE visiteur.id = :unIdVisiteur '
+          . 'WHERE utilisateur.id = :unIdVisiteur '
         );
         $requetePrepare->bindParam(':unCode', $code, PDO::PARAM_STR);
         $requetePrepare->bindParam(':unIdVisiteur', $id, PDO::PARAM_STR);
@@ -502,9 +502,9 @@ class PdoGsb
 
     public function getCodeVisiteur($id) {
         $requetePrepare = $this->connexion->prepare(
-            'SELECT visiteur.codea2f AS codea2f '
-          . 'FROM visiteur '
-          . 'WHERE visiteur.id = :unId'
+            'SELECT utilisateur.codea2f AS codea2f '
+          . 'FROM utilisateur '
+          . 'WHERE utilisateur.id = :unId'
         );
         $requetePrepare->bindParam(':unId', $id, PDO::PARAM_STR);
         $requetePrepare->execute();

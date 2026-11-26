@@ -22,3 +22,11 @@ add constraint uq_visiteur_utilisateur UNIQUE (idUtilisateur);
 
 ALTER TABLE visiteur
 ADD CONSTRAINT existeVisiteur FOREIGN KEY (idUtilisateur) REFERENCES utilisateur(id);
+
+ALTER TABLE utilisateur ADD email varchar(254) NULL;
+update utilisateur join visiteur on visiteur.idUtilisateur = utilisateur.id
+set utilisateur.email = visiteur.email;
+
+ALTER TABLE utilisateur ADD codea2f CHAR(4);
+update utilisateur join visiteur on visiteur.idUtilisateur = utilisateur.id
+set utilisateur.codea2f = visiteur.codea2f;
