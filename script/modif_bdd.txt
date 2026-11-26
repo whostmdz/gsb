@@ -15,3 +15,10 @@ FROM visiteur;
 alter table visiteur add idUtilisateur char(5) null;
 
 update visiteur set idUtilisateur =id;
+
+alter table visiteur
+modify idUtilisateur char(5) not null,
+add constraint uq_visiteur_utilisateur UNIQUE (idUtilisateur);
+
+ALTER TABLE visiteur
+ADD CONSTRAINT existeVisiteur FOREIGN KEY (idUtilisateur) REFERENCES utilisateur(id);
